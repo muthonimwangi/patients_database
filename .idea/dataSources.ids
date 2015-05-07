@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - dhis2@localhost" uuid="8fdf4fd7-0e18-44cd-a2a9-4f9dd5b24da0">
+    <database-info product="MySQL" version="5.6.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="dhis2"/>
+    <table name="drugs" schema="" catalog="dhis2" type="TABLE">
+      <column name="drugs_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="patientid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="drugname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="drugs_id"/>
+      <foreign-key name="drugs_ibfk_1" columns="patientid" ref-table="patients" ref-schema="" ref-catalog="dhis2" ref-columns="patientid" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="patients" schema="" catalog="dhis2" type="TABLE">
+      <column name="patientid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="lname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dob" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="timestamp" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVAoNSk=" version="true"/>
+      <primary-key name="PRIMARY" columns="patientid"/>
+      <exported-key name="drugs_ibfk_1" table="drugs" schema="" catalog="dhis2" columns="patientid"/>
+    </table>
+  </data-source>
+</component>
